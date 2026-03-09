@@ -20,7 +20,7 @@
 
 ## 🎥 Demo
 
-<video src="./assets/demo.mp4" controls="controls" width="100%" height="auto">
+<video src="https://github.com/user-attachments/assets/2becb52d-cc7b-44a0-83dd-4008a9c99e07" controls="controls" width="100%" height="auto">
   Your browser does not support the video tag.
 </video>
 
