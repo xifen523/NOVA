@@ -1,0 +1,16 @@
+{
+  "notices": ["SYNTHETIC_TEST_DATA_ONLY", "NOT_DERIVED_FROM_NUSCENES_KITTI_OR_V2X"],
+  "dataset": "nuscenes",
+  "mode": "training",
+  "history_track_id": "invented-nusc-track",
+  "history_length": 3,
+  "class_split": {"base_classes": ["synthetic_mobile_object"], "novel_classes": ["synthetic_rare_object"], "aliases": {}, "unknown_policy": "as_unknown", "authoritative": false, "mapping_status": "SYNTHETIC_EXAMPLE"},
+  "history": [
+    {"coordinate_frame": "nuscenes_global", "sequence_id": "invented-nusc-scene", "frame_id": 93001, "timestamp": 930001, "sample_token": "invented-token-alpha", "detection_id": "invented-nusc-det-a", "track_id": "invented-nusc-track", "category": "synthetic_mobile_object", "score": 0.85, "translation": [30.0, -10.0, 2.0], "size_wlh": [2.0, 4.0, 1.5], "yaw": 1.00},
+    {"coordinate_frame": "nuscenes_global", "sequence_id": "invented-nusc-scene", "frame_id": 93002, "timestamp": 930002, "sample_token": "invented-token-beta", "detection_id": "invented-nusc-det-b", "track_id": "invented-nusc-track", "category": "synthetic_rare_object", "score": 0.65, "translation": [31.0, -9.0, 2.0], "size_wlh": [1.0, 2.0, 1.0], "yaw": 1.10}
+  ],
+  "candidates": [
+    {"coordinate_frame": "nuscenes_global", "sequence_id": "invented-nusc-scene", "frame_id": 93003, "timestamp": 930003, "sample_token": "invented-token-gamma", "detection_id": "invented-nusc-det-c", "track_id": "invented-nusc-track", "candidate_source_id": "invented-nusc-track", "expected_match": true, "auxiliary_quality": 0.65, "sampling_type": "positive_exact", "category": "synthetic_unknown", "score": 0.40, "translation": [32.0, -8.0, 2.0], "size_wlh": [2.0, 3.0, 1.0], "yaw": 1.20}
+  ],
+  "expected_geometry": [3.2, -0.8, 0.2, 3.0, 2.0, 1.0, 6.0, 1.2, 0.4]
+}

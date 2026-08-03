@@ -1,0 +1,18 @@
+name: NOVA_DATASET_RELEASE_NAME
+dataset: v2x_or_kitti_or_nuscenes
+base_model: Qwen/Qwen2.5-0.5B-Instruct
+base_model_revision: REPLACE_WITH_IMMUTABLE_REVISION
+base_model_tree_sha256: REPLACE_WITH_64_HEX_SHA256
+tokenizer_sha256: REPLACE_WITH_64_HEX_SHA256
+checkpoint_filename: adapter_and_components_directory_or_archive
+checkpoint_sha256: REPLACE_WITH_64_HEX_SHA256
+checkpoint_format: peft_adapter_safetensors_plus_geo_components_safetensors
+expected_vocab_size: 151666
+box_token: "<box>"
+positive_token: " Yes"
+negative_token: " No"
+geometry_dimension: 9
+history_length: 3
+config: configs/reproduction/REPLACE_WITH_DATASET_CONFIG.yaml
+download_url: REPLACE_AFTER_WEIGHT_RELEASE
+license: REPLACE_WITH_WEIGHT_LICENSE

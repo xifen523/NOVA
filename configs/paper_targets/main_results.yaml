@@ -1,0 +1,79 @@
+targets:
+  - paper_experiment_id: T1_V2X_GD_NOVA_BASE
+    paper_table: Table I
+    paper_row: V2X / GroundingDINO / NOVA / Base
+    dataset: V2X-Seq-SPD
+    detector: GroundingDINO
+    method: NOVA
+    split_group: Base
+    metrics: {sAMOTA: "68.17", AMOTA: "13.05", AMOTP: "67.19", MOTA: "35.30", MOTP: "66.44", MT: "14.37"}
+    paper_version: "arXiv:2603.06254v2 / IROS 2026"
+    source_url: "https://arxiv.org/abs/2603.06254"
+    metric_display_precision: 2
+    verification_status: "paper-reported"
+    exact_historical_cli: UNKNOWN
+  - paper_experiment_id: T1_V2X_GD_NOVA_NOVEL
+    paper_table: Table I
+    paper_row: V2X / GroundingDINO / NOVA / Novel
+    dataset: V2X-Seq-SPD
+    detector: GroundingDINO
+    method: NOVA
+    split_group: Novel
+    metrics: {sAMOTA: "22.95", AMOTA: "-141.78", AMOTP: "51.46", MOTA: "5.30", MOTP: "51.26", MT: "3.94"}
+    paper_version: "arXiv:2603.06254v2 / IROS 2026"
+    source_url: "https://arxiv.org/abs/2603.06254"
+    metric_display_precision: 2
+    verification_status: "paper-reported"
+    exact_historical_cli: UNKNOWN
+  - paper_experiment_id: T1_KITTI_GD_NOVA_BASE
+    paper_table: Table I
+    paper_row: KITTI / GroundingDINO / NOVA / Base
+    dataset: KITTI
+    detector: GroundingDINO
+    method: NOVA
+    split_group: Base
+    metrics: {sAMOTA: "93.06", AMOTA: "41.06", AMOTP: "73.38", MOTA: "80.86", MOTP: "72.10", MT: "86.99"}
+    paper_version: "arXiv:2603.06254v2 / IROS 2026"
+    source_url: "https://arxiv.org/abs/2603.06254"
+    metric_display_precision: 2
+    verification_status: "paper-reported"
+    exact_historical_cli: UNKNOWN
+  - paper_experiment_id: T1_KITTI_GD_NOVA_NOVEL
+    paper_table: Table I
+    paper_row: KITTI / GroundingDINO / NOVA / Novel
+    dataset: KITTI
+    detector: GroundingDINO
+    method: NOVA
+    split_group: Novel
+    metrics: {sAMOTA: "12.79", AMOTA: "-104.93", AMOTP: "43.29", MOTA: "8.73", MOTP: "40.64", MT: "1.61"}
+    paper_version: "arXiv:2603.06254v2 / IROS 2026"
+    source_url: "https://arxiv.org/abs/2603.06254"
+    metric_display_precision: 2
+    verification_status: "paper-reported"
+    exact_historical_cli: UNKNOWN
+  - paper_experiment_id: T1_NUS_FNP_NOVA_BASE
+    paper_table: Table I
+    paper_row: nuScenes / Find n' Propagate / NOVA / Base
+    dataset: nuScenes
+    detector: Find n' Propagate
+    method: NOVA
+    split_group: Base
+    metrics: {AMOTA: "48.87", AMOTP: "100.09", MOTA: "43.90", MOTP: "29.94", MT: "50.51"}
+    paper_version: "arXiv:2603.06254v2 / IROS 2026"
+    source_url: "https://arxiv.org/abs/2603.06254"
+    metric_display_precision: 2
+    verification_status: "paper-reported"
+    exact_historical_cli: UNKNOWN
+  - paper_experiment_id: T1_NUS_FNP_NOVA_NOVEL
+    paper_table: Table I
+    paper_row: nuScenes / Find n' Propagate / NOVA / Novel
+    dataset: nuScenes
+    detector: Find n' Propagate
+    method: NOVA
+    split_group: Novel
+    metrics: {AMOTA: "22.41", AMOTP: "138.98", MOTA: "19.60", MOTP: "55.04", MT: "14.93"}
+    paper_version: "arXiv:2603.06254v2 / IROS 2026"
+    source_url: "https://arxiv.org/abs/2603.06254"
+    metric_display_precision: 2
+    verification_status: "paper-reported"
+    exact_historical_cli: UNKNOWN

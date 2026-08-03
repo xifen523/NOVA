@@ -1,0 +1,28 @@
+experiment_name: synthetic-nuscenes
+model:
+  base_model: Qwen/Qwen2.5-0.5B-Instruct
+  revision: null
+  trust_remote_code: false
+  language_hidden_dim: null
+  geometry: {input_dim: 9, hidden_dim: 1024}
+  lora: {rank: 16, alpha: 32, dropout: 0.0, target_modules: [q_proj, k_proj, v_proj, o_proj]}
+  auxiliary_head: {enabled: true, hidden_dim: 256, loss_weight: 1.0}
+  tokens: {box: "<box>", positive: "Yes", negative: "No", token_mode: plain}
+dataset:
+  name: nuscenes
+  history_length: 3
+  coordinate_frame: nuscenes_global
+  real_mode: false
+  class_split:
+    base_classes: [synthetic_mobile_object]
+    novel_classes: [synthetic_rare_object]
+    aliases: {}
+    unknown_policy: as_unknown
+    authoritative: false
+    mapping_status: SYNTHETIC_EXAMPLE
+prompting: {mode: hybrid, novel_label: Unknown, mask_novel_classes: true, preserve_base_classes: true}
+sampling: {positive_exact_ratio: 1.0, jittered_positive_ratio: 0.0, hard_negative_ratio: 0.0, local_negative_ratio: 0.0, random_negative_ratio: 0.0, positive_jitter_enabled: false, positive_jitter_std: null, hard_k: 3, local_radius_m: null}
+training: {enabled: false, batch_size: 4, gradient_accumulation_steps: 8, learning_rate_geometry: 0.0002, learning_rate_language_model: 0.00005, learning_rate_auxiliary_head: 0.0002, epochs: 10, max_steps: null, weight_decay: 0.0, warmup_ratio: 0.1, scheduler: cosine, gradient_clip_norm: 1.0, language_loss_weight: 1.0, auxiliary_loss_weight: 1.0, checkpoint_frequency: 1, resume_from: null, num_workers: 0, seed: 13}
+inference: {yes_threshold: 0.5, birth_threshold: 0.1, detection_threshold: 0.1, distance_gate: 4.0, distance_weight: 0.05, class_gate: true, max_age: 3, min_hits: 1, lost_score_decay: 0.9, emission_mode: active_and_lost, score_mode: decayed_detection, class_gate_policy: exact_alias, pair_batch_size: 8, max_pairs_per_forward: 8, dtype: auto}
+evaluation: {enabled: false, split: synthetic}
+assets: {checkpoint_path: null, checkpoint_sha256: null, detector_asset_path: null, detector_asset_sha256: null}

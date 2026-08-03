@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - run: python -m pip install --upgrade pip
+      - run: pip install ".[test]" build
+      - run: python -m compileall -q nova tools tests
+      - run: pytest tests/unit tests/integration
+      - run: python -m build
+      - run: pip install --force-reinstall --no-deps dist/*.whl
+      - run: nova-prepare --help && nova-train --help && nova-infer --help && nova-summarize --help && nova-evaluate --help
+      - name: Synthetic quickstart
+        run: |
+          mkdir -p /tmp/nova-demo
+          nova-prepare --config configs/examples/synthetic_v2x.yaml --input tests/fixtures/synthetic_v2x.json --output /tmp/nova-demo/prepared.jsonl
+          nova-train --config configs/examples/synthetic_v2x.yaml --input /tmp/nova-demo/prepared.jsonl --output-dir /tmp/nova-demo/train --backend tiny --steps 2
+          nova-infer --input /tmp/nova-demo/prepared.jsonl --output /tmp/nova-demo/predictions.jsonl --backend heuristic
+          nova-summarize --input /tmp/nova-demo/predictions.jsonl --output /tmp/nova-demo/summary.json --dataset v2x
+  model-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+      - run: python -m pip install --upgrade pip
+      - run: pip install ".[model,test]"
+      - run: pytest tests/unit/test_model_contract.py tests/unit/test_tokenizer_config.py tests/unit/test_safetensors_checkpoint.py tests/unit/test_paper_fidelity_inference_evaluation_security.py

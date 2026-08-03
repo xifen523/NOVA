@@ -1,0 +1,16 @@
+{
+  "notices": ["SYNTHETIC_TEST_DATA_ONLY", "NOT_DERIVED_FROM_NUSCENES_KITTI_OR_V2X"],
+  "dataset": "v2x",
+  "mode": "training",
+  "history_track_id": "invented-v2x-track",
+  "history_length": 3,
+  "class_split": {"base_classes": ["synthetic_vehicle"], "novel_classes": ["synthetic_cart"], "aliases": {"synthetic_auto": "synthetic_vehicle"}, "unknown_policy": "as_unknown", "authoritative": false, "mapping_status": "SYNTHETIC_EXAMPLE"},
+  "history": [
+    {"coordinate_frame": "v2x_ego_lidar", "sequence_id": "invented-v2x-sequence", "frame_id": 70001, "timestamp": 910001, "detection_id": "invented-v2x-det-a", "track_id": "invented-v2x-track", "category": "synthetic_auto", "score": 0.80, "ego_xyz": [10.0, -2.0, 1.0], "lwh": [4.0, 2.0, 1.5], "ego_yaw": 0.10},
+    {"coordinate_frame": "v2x_ego_lidar", "sequence_id": "invented-v2x-sequence", "frame_id": 70002, "timestamp": 910002, "detection_id": "invented-v2x-det-b", "track_id": "invented-v2x-track", "category": "synthetic_cart", "score": 0.75, "ego_xyz": [11.0, -1.0, 1.0], "lwh": [3.0, 1.5, 1.2], "ego_yaw": 0.20}
+  ],
+  "candidates": [
+    {"coordinate_frame": "v2x_ego_lidar", "sequence_id": "invented-v2x-sequence", "frame_id": 70003, "timestamp": 910003, "detection_id": "invented-v2x-det-c", "track_id": "invented-v2x-track", "candidate_source_id": "invented-v2x-track", "expected_match": true, "auxiliary_quality": 0.75, "sampling_type": "positive_exact", "category": "synthetic_mystery", "score": 0.60, "ego_xyz": [12.0, 0.0, 1.0], "lwh": [2.0, 1.0, 1.0], "ego_yaw": 0.30}
+  ],
+  "expected_geometry": [1.2, 0.0, 0.1, 2.0, 1.0, 1.0, 2.0, 0.3, 0.6]
+}

@@ -1,0 +1,13 @@
+# SYNTHETIC_EXAMPLE; not a paper-reproduction class map.
+name: v2x
+history_length: 2
+coordinate_frame: v2x_ego_lidar
+real_mode: false
+class_split:
+  base_classes: [synthetic_vehicle]
+  novel_classes: [synthetic_cart]
+  aliases:
+    synthetic_auto: synthetic_vehicle
+  unknown_policy: as_unknown
+  authoritative: false
+  mapping_status: SYNTHETIC_EXAMPLE

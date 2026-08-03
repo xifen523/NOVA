@@ -1,0 +1,63 @@
+experiment_name: kitti-gd-nova-reproduction
+model:
+  base_model: Qwen/Qwen2.5-0.5B-Instruct
+  revision: null
+  trust_remote_code: false
+  language_hidden_dim: 896
+  geometry: {input_dim: 9, hidden_dim: 1024}
+  lora: {rank: 16, alpha: 32, dropout: 0.0, target_modules: [q_proj, k_proj, v_proj, o_proj]}
+  auxiliary_head: {enabled: true, hidden_dim: 256, loss_weight: 1.0}
+  tokens: {box: "<box>", positive: "Yes", negative: "No", token_mode: space}
+dataset:
+  name: kitti
+  history_length: 3
+  coordinate_frame: kitti_lidar
+  real_mode: true
+  class_split:
+    base_classes: [car, cyclist]
+    novel_classes: [pedestrian]
+    aliases: {person_sitting: pedestrian, van: car, truck: car, tram: car}
+    unknown_policy: as_unknown
+    authoritative: true
+    mapping_status: AUTHORITATIVE
+prompting: {mode: hybrid, novel_label: Unknown, mask_novel_classes: true, preserve_base_classes: true}
+sampling: {positive_exact_ratio: 0.0, jittered_positive_ratio: 0.5, hard_negative_ratio: 0.4, local_negative_ratio: 0.0, random_negative_ratio: 0.1, positive_jitter_enabled: true, positive_jitter_std: 0.02, hard_k: 3, local_radius_m: null}
+training: {enabled: false, batch_size: 4, gradient_accumulation_steps: 8, learning_rate_geometry: 0.0002, learning_rate_language_model: 0.00005, learning_rate_auxiliary_head: 0.0002, epochs: 10, max_steps: null, weight_decay: 0.0, warmup_ratio: 0.1, scheduler: cosine, gradient_clip_norm: 1.0, language_loss_weight: 1.0, auxiliary_loss_weight: 1.0, checkpoint_frequency: 1, resume_from: null, num_workers: 4, seed: 0}
+inference:
+  yes_threshold: 0.42
+  birth_threshold: 0.1
+  detection_threshold: 0.1
+  detection_threshold_by_class: {pedestrian: 0.06}
+  distance_gate: null
+  distance_gate_by_class: {}
+  distance_weight: 0.1
+  class_gate: true
+  max_age: 3
+  min_hits: 1
+  lost_score_decay: 0.0
+  emission_mode: active_and_lost
+  score_mode: decayed_detection
+  class_gate_policy: base_novel
+  pair_batch_size: 32
+  max_pairs_per_forward: 32
+  dtype: auto
+evaluation: {enabled: false, split: validation, evaluator_name: null, evaluator_version: null, evaluator_command: [], output_parser: json}
+assets: {checkpoint_path: null, checkpoint_sha256: null, detector_asset_path: null, detector_asset_sha256: null}
+reproduction:
+  dataset_version: KITTI Tracking training/validation protocol; exact sequence partition unresolved
+  split: validation sequence partition unresolved
+  detector: historical grounding detector output; detector artifact is not redistributed
+  coordinate_convention: detector boxes transformed to KITTI lidar for association and to camera coordinates for official output
+  history_policy: three prior observations ordered oldest-to-newest
+  geometry_definition: x/10,y/10,z/10,length,width,height,volume,yaw,detection_score
+  prompt_policy: Car/Cyclist preserved; Pedestrian rendered as Unknown
+  token_policy: space-prefixed decision IDs align with checkpoint training; exact reported inference mode unresolved
+  association_cost: code default is (1-p_yes)+0.1*center_distance; exact reported-run distance settings unresolved
+  gate_policy: Base/Novel membership gate; Pedestrian detection threshold 0.060; distance gate unresolved
+  lifecycle_policy: yes 0.42, birth 0.10, max_age 3, missed-frame output score suppressed
+  iou_threshold: 0.25
+  model_identifier: Qwen2.5 0.5B causal LM family; immutable historical revision unresolved
+  checkpoint_identifier: KITTI epoch 10 adapter; weights not redistributed
+  evaluator: KITTI tracking evaluator source and exact invocation unresolved
+  evaluator_status: EXTERNAL_EVALUATOR_UNRESOLVED
+  known_unresolved_fields: [exact_sequence_split, detector_identity_and_hash, distance_gate, exact_reported_distance_weight, exact_reported_inference_token_mode, evaluator_source_and_invocation, immutable_model_revision]

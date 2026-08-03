@@ -1,0 +1,12 @@
+# SYNTHETIC_EXAMPLE; not a paper-reproduction class map.
+name: kitti
+history_length: 2
+coordinate_frame: kitti_lidar
+real_mode: false
+class_split:
+  base_classes: [synthetic_road_object]
+  novel_classes: [synthetic_small_object]
+  aliases: {}
+  unknown_policy: as_unknown
+  authoritative: false
+  mapping_status: SYNTHETIC_EXAMPLE

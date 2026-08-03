@@ -1,0 +1,12 @@
+# REQUIRES_AUTHORITATIVE_CLASS_MAP before real_mode may be enabled.
+name: nuscenes
+history_length: 2
+coordinate_frame: nuscenes_global
+real_mode: false
+class_split:
+  base_classes: []
+  novel_classes: []
+  aliases: {}
+  unknown_policy: as_unknown
+  authoritative: false
+  mapping_status: REQUIRES_AUTHORITATIVE_CLASS_MAP
