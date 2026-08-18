@@ -1,0 +1,32 @@
+cff-version: 1.2.0
+message: "If you use NOVA, please cite the paper below."
+title: "NOVA: Next-step Open-Vocabulary Autoregression for 3D Multi-Object Tracking in Autonomous Driving"
+type: software
+authors:
+  - family-names: Luo
+    given-names: Kai
+  - family-names: Wang
+    given-names: Xu
+  - family-names: Fan
+    given-names: Rui
+  - family-names: Yang
+    given-names: Kailun
+version: 0.1.0
+date-released: 2026-08-03
+repository-code: "https://github.com/xifen523/NOVA"
+url: "https://arxiv.org/abs/2603.06254"
+license: Apache-2.0
+preferred-citation:
+  type: article
+  title: "NOVA: Next-step Open-Vocabulary Autoregression for 3D Multi-Object Tracking in Autonomous Driving"
+  authors:
+    - family-names: Luo
+      given-names: Kai
+    - family-names: Wang
+      given-names: Xu
+    - family-names: Fan
+      given-names: Rui
+    - family-names: Yang
+      given-names: Kailun
+  year: 2026
+  journal: "arXiv preprint arXiv:2603.06254; accepted to IROS 2026"

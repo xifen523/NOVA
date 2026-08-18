@@ -1,0 +1,27 @@
+model:
+  base_model: Qwen/Qwen2.5-0.5B-Instruct
+  revision: null
+  trust_remote_code: false
+  language_hidden_dim: null
+  geometry:
+    input_dim: 9
+    hidden_dim: 1024
+  lora:
+    rank: 16
+    alpha: 32
+    dropout: null
+    target_modules:
+      - q_proj
+      - k_proj
+      - v_proj
+      - o_proj
+  auxiliary_head:
+    enabled: true
+    hidden_dim: 256
+    loss_weight: 1.0
+  tokens:
+    box: "<box>"
+    positive: "Yes"
+    negative: "No"
+    token_mode: plain
+

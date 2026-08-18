@@ -1,0 +1,19 @@
+conflicts:
+  - conflict_id: NUSCENES_OPEN3DTRACK_EPOCH12_BASE
+    status: KNOWN_CONFLICT
+    release_acceptance_target: false
+    paper_metrics: {AMOTA: "52.30", AMOTP: "63.70", MOTA: "45.00", MOTP: "36.70", MT: "47.27"}
+    verified_local_metrics: {AMOTA: "52.33502037989239", AMOTP: "63.69964594654807", MOTA: "44.974896351909486", MOTP: "36.65470063176105", MT: "49.26750659244067"}
+    absolute_differences: {AMOTA: "0.03502037989239", AMOTP: "0.00035405345193", MOTA: "0.025103648090514", MOTP: "0.04529936823895", MT: "1.99750659244067"}
+    material_conflict: true
+    paper_reference: "Table I, arXiv:2603.06254v2"
+    verification_note: "A preserved local Open3DTrack result differs materially in MT and is not an acceptance target."
+  - conflict_id: NUSCENES_OPEN3DTRACK_EPOCH12_NOVEL
+    status: KNOWN_CONFLICT
+    release_acceptance_target: false
+    paper_metrics: {AMOTA: "2.20", AMOTP: "126.90", MOTA: "2.70", MOTP: "62.80", MT: "30.01"}
+    verified_local_metrics: {AMOTA: "2.2174979883815533", AMOTP: "126.93051784758869", MOTA: "2.7145506659922436", MOTP: "62.82523954687087", MT: "27.043390514631685"}
+    absolute_differences: {AMOTA: "0.0174979883815533", AMOTP: "0.03051784758869", MOTA: "0.0145506659922436", MOTP: "0.02523954687087", MT: "2.966609485368315"}
+    material_conflict: true
+    paper_reference: "Table I, arXiv:2603.06254v2"
+    verification_note: "A preserved local Open3DTrack result differs materially in MT and is not an acceptance target."
